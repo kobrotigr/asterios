@@ -1,3 +1,11 @@
+## About
+```text
+This script allows you to get notification on asterios Raid boss death,
+it must be helpful on TIO raid bosses.
+Good luck!
+```
+
+
 ## Configuration
 ```text
 install python3

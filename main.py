@@ -1,3 +1,4 @@
+import logging
 import time
 import datetime
 
@@ -11,15 +12,20 @@ def main():
         r = requests.get('https://asterios.tm/index.php?cmd=rss&serv=8&filter=keyboss')
         bs = BeautifulSoup(r.text, 'html.parser')
         table = bs.find('table', width=650)
+
+        # your boss name
         boss_name = 'Death Lord Hallate'
+
         if boss_name in table.prettify():
             mixer.init()
             mixer.music.load('sound.mp3')
             mixer.music.play()
-            print(datetime.datetime.now(), 'boss has been killed: ', boss_name)
+            msg = f'{datetime.datetime.now()} Killed: {boss_name}'
+            logging.warning(msg)
 
         a = table.find('a')
-        print(datetime.datetime.now(), 'last killed boss was:', a.next_element)
+        msg = f'{datetime.datetime.now()} Last Killed: {a.next_element}'
+        logging.warning(msg)
         time.sleep(6)
 
 

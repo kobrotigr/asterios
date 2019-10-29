@@ -12,11 +12,16 @@ def main():
         r = requests.get('https://asterios.tm/index.php?cmd=rss&serv=8&filter=keyboss')
         bs = BeautifulSoup(r.text, 'html.parser')
         table = bs.find('table', width=650)
-
+        try:
+            next_t = table.find_next_sibling('table', width=650)
+        except AttributeError:
+            logging.error(f'asterios.tm {r.status_code} gateway')
+            time.sleep(5)
+            continue
         # your boss name
         boss_name = 'Death Lord Hallate'
 
-        if boss_name in table.prettify():
+        if boss_name in table.prettify() or boss_name in next_t.prettify():
             mixer.init()
             mixer.music.load('sound.mp3')
             mixer.music.play()
@@ -24,7 +29,8 @@ def main():
             logging.warning(msg)
 
         a = table.find('a')
-        msg = f'{datetime.datetime.now()} Last Killed: {a.next_element}'
+        next_a = next_t.find('a')
+        msg = f'{datetime.datetime.now()} Last Killed: {a.next_element}/nPrevious Killed: {next_a.next_element}'
         logging.warning(msg)
         time.sleep(6)
 

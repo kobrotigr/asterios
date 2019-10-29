@@ -30,7 +30,8 @@ def main():
 
         a = table.find('a')
         next_a = next_t.find('a')
-        msg = f'{datetime.datetime.now()} Last Killed: {a.next_element}/nPrevious Killed: {next_a.next_element}'
+        msg = f'{datetime.datetime.now()}\nLast Killed: {a.next_element}\nPrevious Killed: {next_a.next_element}\n' \
+              f'===================================================================================================='
         logging.warning(msg)
         time.sleep(6)
 

@@ -1,4 +1,5 @@
 import time
+import datetime
 
 import requests
 from pygame import mixer
@@ -15,17 +16,11 @@ def main():
             mixer.init()
             mixer.music.load('sound.mp3')
             mixer.music.play()
-            print('boss has been killed: ', boss_name)
+            print(datetime.datetime.now(), 'boss has been killed: ', boss_name)
 
         a = table.find('a')
-        print('last killed boss was:', a.next_element)
+        print(datetime.datetime.now(), 'last killed boss was:', a.next_element)
         time.sleep(6)
-
-
-        # ========================================================================
-        # os.system('aplay sound.mp3')
-        # winsound.PlaySound('sound.mp3', winsound.SND_ASYNC)
-        # ========================================================================
 
 
 if __name__ == '__main__':

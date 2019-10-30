@@ -3,7 +3,7 @@ import time
 import datetime
 
 import requests
-from pygame import mixer
+from playsound import playsound
 from bs4 import BeautifulSoup
 
 
@@ -22,9 +22,7 @@ def main():
         boss_name = 'Death Lord Hallate'
 
         if boss_name in table.prettify() or boss_name in next_t.prettify():
-            mixer.init()
-            mixer.music.load('sound.mp3')
-            mixer.music.play()
+            playsound('sound.mp3')
             msg = f'{datetime.datetime.now()} Killed: {boss_name}'
             logging.warning(msg)
 

@@ -8,8 +8,10 @@ Good luck!
 
 ## Configuration
 ```text
-install python3
-pip install -r requirements.txt
+install python3                                     // via python.org
+python3 -m venv venv                        // create venv
+venv/Scripts/activate.bat                    // activate venv
+pip install -r requirements.txt             // install requirements
 ```
 
 ## Run Service

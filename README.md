@@ -1,5 +1,7 @@
 ## About
 ```text
+Windows version.
+
 This script allows you to get notification on asterios Raid boss death,
 it must be helpful on TIO raid bosses.
 Good luck!
@@ -16,7 +18,7 @@ pip install -r requirements.txt             // install requirements
 
 ## Run Service
 ```bash
-python3 main.py
+python main.py
 ```
 
 ## Final Settings
